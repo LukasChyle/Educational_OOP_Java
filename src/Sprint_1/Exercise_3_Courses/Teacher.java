@@ -1,6 +1,4 @@
-package Sprint_1.Uppgift_3;
-
-import java.util.List;
+package Sprint_1.Exercise_3_Courses;
 
 public class Teacher extends Person {
 

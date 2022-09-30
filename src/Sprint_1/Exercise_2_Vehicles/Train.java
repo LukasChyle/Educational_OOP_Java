@@ -1,4 +1,4 @@
-package Sprint_1.Fordon;
+package Sprint_1.Exercise_2_Vehicles;
 
 public class Train extends Vehicle implements Wheeled {
 

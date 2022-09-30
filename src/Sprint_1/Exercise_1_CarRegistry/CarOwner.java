@@ -1,4 +1,4 @@
-package Sprint_1.Bilregister;
+package Sprint_1.Exercise_1_CarRegistry;
 
 import java.util.ArrayList;
 

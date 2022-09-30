@@ -1,4 +1,4 @@
-package Sprint_1.Uppgift_3;
+package Sprint_1.Exercise_3_Courses;
 
 import java.util.List;
 
