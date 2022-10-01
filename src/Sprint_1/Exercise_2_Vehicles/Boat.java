@@ -6,6 +6,9 @@ public class Boat extends Vehicle {
 
     public Boat(int speed, int weight, int deadWeight) {
         super(speed, weight);
+        if (deadWeight < 0) {
+            throw new IllegalArgumentException(deadWeight + " Invalid number for deadWeight");
+        }
         this.deadWeight = deadWeight;
     }
 

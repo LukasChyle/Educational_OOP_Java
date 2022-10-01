@@ -7,6 +7,11 @@ public class Person {
     private int age;
 
     public Person(String name, String address, int age) {
+        if (name.isBlank() || address.isBlank()){
+            throw new IllegalArgumentException("Invalid String input");
+        } else if (age < 0) {
+            throw new IllegalArgumentException(age + "Invalid number for age");
+        }
         this.name = name;
         this.address = address;
         this.age = age;

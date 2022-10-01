@@ -8,6 +8,11 @@ public class Bike extends Vehicle implements Wheeled {
 
     public Bike(int speed, int weight, int numberOfGears, int currentGear) {
         super(speed, weight);
+        if (numberOfGears <= 0) {
+            throw new IllegalArgumentException(numberOfGears + " Invalid number for numberOfGears");
+        } else if (currentGear < 0 || currentGear > numberOfGears) {
+            throw new IllegalArgumentException(currentGear + " Invalid number for currentGear");
+        }
         this.numberOfGears = numberOfGears;
         this.currentGear = currentGear;
     }

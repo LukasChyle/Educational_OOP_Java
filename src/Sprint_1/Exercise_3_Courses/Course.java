@@ -8,6 +8,9 @@ public class Course {
     private final Teacher teacher;
 
     public Course(String name, Teacher teacher) {
+        if (name.isBlank()) {
+            throw new IllegalArgumentException("Invalid name, can't be blank or empty");
+        }
         this.name = name;
         this.teacher = teacher;
     }

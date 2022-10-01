@@ -7,6 +7,9 @@ public abstract class Vehicle implements Printable {
 
     public Vehicle(int speed, int weight) {
         this.speed = speed;
+        if (weight <= 0) {
+            throw new IllegalArgumentException(weight + " Invalid number for weight");
+        }
         this.weight = weight;
     }
 

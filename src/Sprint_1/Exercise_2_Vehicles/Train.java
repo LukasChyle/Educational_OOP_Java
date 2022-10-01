@@ -3,11 +3,15 @@ package Sprint_1.Exercise_2_Vehicles;
 public class Train extends Vehicle implements Wheeled {
 
     private int wagons;
-    private final int wheels = 6;
+    private final int wheels;
 
     public Train(int speed, int weight, int wagons) {
         super(speed, weight);
+        if (wagons < 0) {
+            throw new IllegalArgumentException(wagons + " Invalid number for wagons");
+        }
         this.wagons = wagons;
+        this.wheels = 6;
     }
 
     private void connectWagon() {

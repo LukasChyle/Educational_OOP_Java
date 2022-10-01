@@ -8,6 +8,9 @@ public class Car {
     private CarOwner owner;
 
     public Car(String registrationNumber, String brand, String model) {
+        if (registrationNumber.isBlank() || brand.isBlank() || model.isBlank()){
+            throw new IllegalArgumentException("Invalid String input to Car");
+        }
         this.registrationNumber = registrationNumber;
         this.brand = brand;
         this.model = model;
