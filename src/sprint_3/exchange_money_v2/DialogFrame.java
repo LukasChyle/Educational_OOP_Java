@@ -25,7 +25,7 @@ public class DialogFrame extends JFrame implements ActionListener {
 
         add(leftPanel = new JPanel(new GridLayout(11, 1)), BorderLayout.WEST);
         add(rightPanel = new JPanel(new GridLayout(4, 1)), BorderLayout.EAST);
-        add(textArea = new JTextArea("BorderLayout.CENTER       "), BorderLayout.CENTER);
+        add(textArea = new JTextArea("Choose what currencies you want in exchange"), BorderLayout.CENTER);
 
         boxList.add(new JCheckBox("1000"));
         boxList.add(new JCheckBox("500"));

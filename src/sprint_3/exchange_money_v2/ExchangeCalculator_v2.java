@@ -24,14 +24,14 @@ public class ExchangeCalculator_v2 {
         }
 
         StringBuilder moneyBack = new StringBuilder();
-
+        moneyBack.append("Quantity:\n");
         for (int value : values) {
             if (value <= remaining) {
-                moneyBack.append("Quantity ").append(value);
+                moneyBack.append(value);
                 if (value >= 20) {
-                    moneyBack.append("-bill: ");
+                    moneyBack.append("-bills: ");
                 } else {
-                    moneyBack.append("-coin: ");
+                    moneyBack.append("-coins: ");
                 }
                 moneyBack.append(remaining / value).append("\n");
 
