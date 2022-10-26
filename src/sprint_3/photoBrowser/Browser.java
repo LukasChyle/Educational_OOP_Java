@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Browser extends JFrame implements ActionListener {
-    Path folderPath = Paths.get("res/photos");
+    private final Path folderPath = Paths.get("res/photos");
     private final JPanel panel = new JPanel();
     private final JButton button = new JButton("Change picture");
     private final JLabel label = new JLabel();
