@@ -3,7 +3,7 @@ package sprint_4.inspirationalQuoteUDP;
 import java.io.IOException;
 import java.net.*;
 
-public class Server implements Runnable {
+public class QuoteServer implements Runnable {
 
     private InetAddress address;
     private int port;
@@ -70,6 +70,6 @@ public class Server implements Runnable {
     }
 
     public static void main(String[] args) {
-        (new Thread(new Server())).start();
+        (new Thread(new QuoteServer())).start();
     }
 }

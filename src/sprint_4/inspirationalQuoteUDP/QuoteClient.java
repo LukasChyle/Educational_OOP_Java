@@ -3,7 +3,7 @@ package sprint_4.inspirationalQuoteUDP;
 import java.io.*;
 import java.net.*;
 
-public class Client implements Runnable {
+public class QuoteClient implements Runnable {
 
     private DatagramSocket socket;
     private DatagramPacket packet;
@@ -41,6 +41,6 @@ public class Client implements Runnable {
     }
 
     public static void main(String[] args) {
-        (new Thread(new Client())).start();
+        (new Thread(new QuoteClient())).start();
     }
 }
