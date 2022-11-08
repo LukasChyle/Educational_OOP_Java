@@ -125,15 +125,15 @@ public class Window extends JFrame implements Runnable {
         setScore();
         thread = new Thread(this);
         thread.start();
-        run = true;
     }
 
     @Override
-    public void run() {
+    public synchronized void run() {
         double drawInterval = 1_000_000_000;
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
+        run = true;
 
         resetLabel.setText("Reset in: 3");
         for (int i = 3; i > 0; ) {
