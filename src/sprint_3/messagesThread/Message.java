@@ -1,4 +1,4 @@
-package sprint_3.messages;
+package sprint_3.messagesThread;
 
 class Message {
     private String message;

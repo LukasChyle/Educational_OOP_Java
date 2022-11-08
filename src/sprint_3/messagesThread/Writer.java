@@ -1,4 +1,4 @@
-package sprint_3.messages;
+package sprint_3.messagesThread;
 
 import java.util.Random;
 
