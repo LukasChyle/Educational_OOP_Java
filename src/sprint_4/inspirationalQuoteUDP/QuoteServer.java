@@ -5,36 +5,34 @@ import java.net.*;
 
 public class QuoteServer implements Runnable {
 
-    private InetAddress address;
-    private int port;
     private final byte[] data = new byte[256];
     private byte[] message;
     int counter = 0;
 
     @Override
     public void run() {
-        try (DatagramSocket socket = new DatagramSocket(6655)) {
+        int outPort = 6665;
+        int inPort = 6664;
+
+        try (DatagramSocket socket = new DatagramSocket(inPort)) {
             while (true) {
                 DatagramPacket packet = new DatagramPacket(data, data.length);
                 try {
                     socket.receive(packet);
-                    address = packet.getAddress();
-                    port = packet.getPort();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                String received = new String(packet.getData(), 0, packet.getLength());
-                System.out.println(received);
-                try {
+                    InetAddress address = packet.getAddress();
+
+                    String received = new String(packet.getData(), 0, packet.getLength());
+                    System.out.println(received);
+
                     if (received.equalsIgnoreCase("end")) {
                         System.exit(0);
                     } else if (received.equalsIgnoreCase("quote")) {
 
-                            try {
-                                Thread.sleep(5000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
 
                         switch (counter) {
                             case 0 ->
@@ -47,18 +45,16 @@ public class QuoteServer implements Runnable {
                                     message = "\"Believe you can and you're halfway there.\" - Theodore Roosevelt".getBytes();
                             case 4 ->
                                     message = "\"Weaknesses are just strengths in the wrong environment.\" - Marianne Cantwell".getBytes();
-                            case 5 ->
-                                    message = "\"Try to be a rainbow in someone's cloud.\" - Maya Angelou".getBytes();
+                            case 5 -> message = "\"Try to be a rainbow in someone's cloud.\" - Maya Angelou".getBytes();
                         }
                         counter++;
                         if (counter > 5) {
                             counter = 0;
                         }
-                        socket.send(new DatagramPacket(message, 0, message.length, address, port));
-                    }
-                    else {
+                        socket.send(new DatagramPacket(message, 0, message.length, address, outPort));
+                    } else {
                         message = "write \"quote\" for a quote after 5 sec, or \"end\" to exit.".getBytes();
-                        socket.send(new DatagramPacket(message, 0, message.length, address, port));
+                        socket.send(new DatagramPacket(message, 0, message.length, address, outPort));
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

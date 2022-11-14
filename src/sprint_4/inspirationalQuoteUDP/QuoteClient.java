@@ -11,17 +11,20 @@ public class QuoteClient implements Runnable {
 
     @Override
     public void run() {
+        int outPort = 6664;
+        int inPort = 6665;
+
         try {
             InetAddress address = InetAddress.getLocalHost();
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-            socket = new DatagramSocket();
+            socket = new DatagramSocket(inPort);
             String input;
 
             while (true) {
                 try {
                     input = in.readLine();
                     byte[] message = input.getBytes();
-                    socket.send(new DatagramPacket(message,0, message.length, address, 6655));
+                    socket.send(new DatagramPacket(message,0, message.length, address, outPort));
                     if (input.equalsIgnoreCase("end")) {
                         System.exit(0);
                     }
