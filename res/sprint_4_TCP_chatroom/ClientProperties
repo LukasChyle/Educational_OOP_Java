@@ -1,0 +1,5 @@
+
+# Properties for the client
+
+serverPort=5000
+serverHost=127.0.0.1

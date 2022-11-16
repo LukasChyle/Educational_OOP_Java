@@ -101,10 +101,8 @@ public class Client extends JFrame implements ActionListener {
     }
 
     private void connection() {
-        thread = new Thread(task);
-
         if (connectionButton.getText().equals(clientStatus.DISCONNECTED.s)) {
-            thread.start();
+            new Thread(task).start();
             connectionButton.setBackground(Color.green);
             connectionButton.setText(clientStatus.CONNECTED.s);
             return;
